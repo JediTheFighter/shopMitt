@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:background="@color/quantum_white_100"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:id="@+id/navigation_title"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="7sp"
+        android:layout_toStartOf="@+id/navigation_icon"
+        android:fontFamily="@font/bold"
+        android:gravity="center_vertical"
+        android:text="Custom Navigation Drawer Row"
+        android:textColor="@color/quantum_black_text"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/navigation_icon"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:visibility="invisible"
+        android:scaleType="centerInside"
+        tools:ignore="ContentDescription" />
+
+    <View
+        android:id="@+id/navSeperator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/dividerGrey" />
+
+
+</RelativeLayout>

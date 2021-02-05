@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    tools:context=".views.activities.ShippingActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cv_current_address"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                android:backgroundTint="@color/colorWhite"
+                app:strokeColor="@color/cardViewStroke"
+                app:strokeWidth="1dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="5dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:id="@+id/deliverText"
+                        android:textSize="14sp"
+                        android:text="@string/deliver_to"
+                        android:fontFamily="@font/bold"
+                        android:textColor="@color/colorBlack"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:id="@+id/change_address"
+                        android:text="@string/change"
+                        android:textSize="14sp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toStartOf="@+id/home_icon"
+                        android:fontFamily="@font/bold"
+                        android:textColor="@color/colorAccent"/>
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="8dp"
+                        android:id="@+id/home_icon"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/vc_home"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/user_address"
+                        android:layout_below="@+id/deliverText"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="8dp"
+                        android:lineHeight="20dp"
+                        android:textSize="12sp"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="@font/medium"
+                        tools:text="Mike T Hopkins \nFlat no:11b8hb7\nkochi\n682105, Kerala, India"
+                        tools:targetApi="p" />
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Or"
+                android:visibility="gone"
+                android:id="@+id/textOr"
+                android:textStyle="italic"/>
+
+
+            <Button
+                android:id="@+id/add_new_address"
+                style="@style/ButtonTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
+                android:letterSpacing="0"
+                android:text="@string/add_new_address"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cv_time_slot"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/colorWhite"
+                app:strokeColor="@color/cardViewStroke"
+                app:strokeWidth="1dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="5dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/title"
+                        android:textSize="14sp"
+                        android:text="@string/time_slot"
+                        android:fontFamily="@font/bold"
+                        android:textColor="@color/colorBlack"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/time_slot"
+                        android:layout_below="@+id/title"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_centerHorizontal="true"
+                        android:lineHeight="20dp"
+                        android:textSize="12sp"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/medium"
+                        tools:text="09:00 - 12:00"
+                        tools:targetApi="p" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/date"
+                        android:layout_below="@+id/time_slot"
+                        android:layout_marginStart="8dp"
+                        android:layout_centerHorizontal="true"
+                        android:lineHeight="20dp"
+                        android:textSize="12sp"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="@font/medium"
+                        tools:text="23 nov 2020"
+                        tools:targetApi="p" />
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <Button
+                android:id="@+id/proceed"
+                style="@style/ButtonTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
+                android:visibility="gone"
+                android:letterSpacing="0"
+                android:text="@string/proceed" />
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

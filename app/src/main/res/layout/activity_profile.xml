@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    tools:context=".models.ProfileActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/back_button"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"
+            android:src="@drawable/arrow_back"/>
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/profileIcon"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/vc_default_user"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/profileIcon"
+            android:layout_marginStart="20dp"
+            android:textSize="20sp"
+            android:id="@+id/user_name"
+            android:fontFamily="@font/bold"
+            android:textColor="@color/quantum_white_100"
+            tools:text="User Name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/profileIcon"
+            android:layout_marginStart="20dp"
+            android:layout_below="@+id/user_name"
+            android:id="@+id/user_phone"
+            android:gravity="center"
+            android:drawablePadding="10dp"
+            android:textSize="12sp"
+            android:fontFamily="@font/bold"
+            android:textColor="@color/quantum_white_100"
+            tools:text="+91 9495566172"
+            app:drawableStartCompat="@drawable/vc_phone" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:id="@+id/update_profile"
+            android:text="@string/update_profile"
+            android:textAllCaps="true"
+            android:fontFamily="@font/bold"
+            android:textColor="@color/quantum_white_100"
+            app:drawableEndCompat="@drawable/arrow_forward" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/app_logo"/>
+    </RelativeLayout>
+
+</LinearLayout>

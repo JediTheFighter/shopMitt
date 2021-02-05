@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "244157935340",
+    "firebase_url": "https://alis-293217.firebaseio.com",
+    "project_id": "alis-293217",
+    "storage_bucket": "alis-293217.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244157935340:android:096c53b7bf2c04efe0ffc9",
+        "android_client_info": {
+          "package_name": "com.ecommerce.shopmitt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244157935340-of753r0kmhv2sgie5ouiu4t1hqgm03tc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ecommerce.shopmitt",
+            "certificate_hash": "3f279e0b13fd73e894caefa8743c5eea7cfdcf17"
+          }
+        },
+        {
+          "client_id": "244157935340-q4djbolu3021c53f3h9frol4landjags.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjuLlS_0eCWkxd7T0F8Ajpkd4r3MWLx0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "244157935340-q4djbolu3021c53f3h9frol4landjags.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

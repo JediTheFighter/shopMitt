@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:minWidth="300dp"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
+    android:background="@color/colorWhite"
+    android:padding="12dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apply Reward Points"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/title"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/colorText"
+        android:textSize="16sp"
+        android:fontFamily="@font/bold"/>
+
+    <View
+        android:layout_width="40dp"
+        android:layout_height="2dp"
+        android:id="@+id/band"
+        android:background="@color/colorAccent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/title"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/close"
+        android:src="@drawable/vc_close"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/band"
+        android:layout_marginTop="8dp"
+        android:id="@+id/ll_balance"
+        android:layout_marginHorizontal="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/medium"
+            android:text="Balance: "/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:id="@+id/reward_balance"
+            android:textColor="@color/colorPrimary"
+            tools:text="50"/>
+
+    </LinearLayout>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_balance"
+        android:layout_marginTop="16dp"
+        android:textSize="14sp"
+        android:inputType="number"
+        android:textColor="@color/textColor"
+        android:textColorHint="@color/textColor"
+        android:backgroundTint="@color/colorAccent"
+        android:hint="Enter Points"
+        android:layout_marginHorizontal="12dp"
+        android:id="@+id/et_points"/>
+
+
+    <Button
+        android:id="@+id/apply"
+        style="@style/ButtonTheme"
+        android:layout_below="@+id/et_points"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:letterSpacing="0"
+        android:text="@string/apply"
+        android:layout_marginBottom="10dp"/>
+
+
+</RelativeLayout>

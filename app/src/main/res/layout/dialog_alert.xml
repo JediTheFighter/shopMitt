@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:padding="1dp"
+    android:visibility="visible"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true"
+    card_view:cardBackgroundColor="@color/colorWhite"
+    card_view:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/white"
+            android:fontFamily="@font/regular"
+            android:gravity="center"
+            android:lines="1"
+            android:padding="8dp"
+            android:text="Title"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/darker_gray"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:contentDescription="@null"
+            android:padding="16dp"
+            android:src="@drawable/ic_launcher_background"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvMessage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/regular"
+            android:gravity="center"
+            android:padding="16dp"
+            android:textColor="@color/quantum_grey900"
+            android:text="Message here"
+            android:textSize="14sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:id="@+id/llButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <Button
+                    android:id="@+id/btnNegative"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:insetBottom="0dp"
+                    android:insetTop="0dp"
+                    app:backgroundTint="@color/colorWhite"
+                    android:fontFamily="@font/regular"
+                    android:text="Negative"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorBlack" />
+
+                <Button
+                    android:id="@+id/btnPositive"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:insetBottom="0dp"
+                    android:insetTop="0dp"
+                    app:backgroundTint="@color/colorAccent"
+                    android:fontFamily="@font/regular"
+                    android:text="Positive"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite" />
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSingle"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:fontFamily="@font/regular"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:text="Single Button"
+                android:letterSpacing="0"
+                android:textAllCaps="false"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:padding="10dp"
+                app:backgroundTint="@color/colorAccent"
+                android:textColor="@color/quantum_white_100"
+                android:visibility="gone" />
+
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

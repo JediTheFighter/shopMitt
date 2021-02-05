@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#298F2C</color>
+    <color name="colorPrimaryDark">#298F2C</color>
+    <color name="colorAccent">#FF8500</color>
+
+    <color name="navBackground">#1AFF8500</color>
+    <color name="cardBackground">#F8F8F8</color>
+    <color name="navSeperator">#33FF8500</color>
+    <color name="dividerGrey">#E6E6E6</color>
+    <color name="textGrey">#A4A4A4</color>
+    <color name="normalText">#444444</color>
+    <color name="etBg">#9E9E9E</color>
+    <color name="colorNav_text">#58595B</color>
+    <color name="colorTextPrimary">#B6B6B6</color>
+    <color name="colorDisabled">#d7d7d7</color>
+
+    <color name="colorWhite">#000000</color>
+    <color name="colorSpecialSlot">#ff8236</color>
+    <color name="colorBlack">#FFFFFF</color>
+    <color name="textColor">#444444</color>
+    <color name="colorDivider">#DDDDDD</color>
+    <color name="colorDivider2">#EEEEEE</color>
+    <color name="colorDivider3">#80999999</color>
+    <color name="colorButton">#01A4B7</color>
+    <color name="colorGrey">#BBB3B3</color>
+    <color name="colorGrey1">#9C9C9C</color>
+    <color name="colorGrey2">#C4C4C4</color>
+
+    <color name="colorTextGrey">#999999</color>
+    <color name="colorText">#FBF9F9</color>
+    <color name="colorText1">#444444</color>
+    <color name="colorText2">#555555</color>
+    <color name="colorHint">#666666</color>
+    <color name="colorBlue">#00BCD4</color>
+
+    <color name="optionSelected">#150A42</color>
+    <color name="cardViewStroke">#FFFFFF</color>
+
+</resources>

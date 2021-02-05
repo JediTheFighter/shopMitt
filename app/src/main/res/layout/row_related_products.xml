@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="140dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@color/colorWhite"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    app:cardElevation="1dp"
+    app:cardUseCompatPadding="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_prod"
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_height="90dp"
+            android:src="@drawable/app_logo"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:transitionName="simple_activity_transition" />
+
+
+        <TextView
+            android:id="@+id/tv_prod_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:maxLines="2"
+            android:minLines="2"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            tools:text="Groceries" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_prod_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-black"
+                android:textStyle="bold"
+                android:visibility="visible"
+                tools:text="₹229" />
+
+            <TextView
+                android:id="@+id/tv_prod_sp_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="sans-serif-black"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="#979797"
+                android:textSize="13sp"
+                tools:text="₹229" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
