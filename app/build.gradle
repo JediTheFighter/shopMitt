@@ -8,6 +8,10 @@ androidExtensions {
     experimental = true
 }
 
+def apikeyPropertiesFile = rootProject.file("apiKey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
 android {
     signingConfigs {
         production {
@@ -28,7 +32,7 @@ android {
         versionName "1.0.3"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        manifestPlaceholders = [ MAPS_KEY:"AIzaSyAa8Us7GgtGM34VkTru8VdeNFtlE2ZIDLM" ]
+        manifestPlaceholders = [ MAPS_KEY:'"' + apikeyProperties['MAPS_KEY'] + '"' ]
     }
 
 
@@ -42,7 +46,7 @@ android {
 
 //            buildConfigField 'String', 'BASE_URL', "\"http://128.199.23.119/\""
             buildConfigField 'String', 'BASE_URL', "\"https://shopmitt.in/\""
-            buildConfigField 'String', 'MAPS_KEY', "\"AIzaSyAa8Us7GgtGM34VkTru8VdeNFtlE2ZIDLM\""
+            buildConfigField 'String', 'MAPS_KEY', '"' + apikeyProperties['MAPS_KEY'] + '"'
             buildConfigField 'String', 'GOOGLE_SIGN_IN', "\"193094960362-t0b4s8shm2r8dghueh8brkmtphkpkegc.apps.googleusercontent.com\""
 
         }
@@ -54,7 +58,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             buildConfigField 'String', 'BASE_URL', "\"https://shopmitt.in/\""
-            buildConfigField 'String', 'MAPS_KEY', "\"AIzaSyAa8Us7GgtGM34VkTru8VdeNFtlE2ZIDLM\""
+            buildConfigField 'String', 'MAPS_KEY', '"' + apikeyProperties['MAPS_KEY'] + '"'
             buildConfigField 'String', 'GOOGLE_SIGN_IN', "\"193094960362-t0b4s8shm2r8dghueh8brkmtphkpkegc.apps.googleusercontent.com\""
             signingConfig signingConfigs.production
         }
