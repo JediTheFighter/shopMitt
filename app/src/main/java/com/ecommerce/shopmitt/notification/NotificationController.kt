@@ -12,10 +12,10 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
-import com.google.firebase.messaging.RemoteMessage
+import com.ecommerce.shopmitt.MainActivity
 import com.ecommerce.shopmitt.R
 import com.ecommerce.shopmitt.utils.LogHelper
-import com.ecommerce.shopmitt.views.activities.SplashActivity
+import com.google.firebase.messaging.RemoteMessage
 
 
 class NotificationController private constructor() {
@@ -30,11 +30,11 @@ class NotificationController private constructor() {
 
         when {
             remoteMessage.data.isNotEmpty() -> {
-                LogHelper.instance.printDebugLog("Message Data present ")
+                LogHelper.instance.printDebugLog("Message Data present")
                 title = remoteMessage.data["title"]
-                message = remoteMessage.data["message"]
-                if (remoteMessage.data.containsKey("image"))
-                    imageUri = Uri.parse(remoteMessage.data["image"])
+                message = remoteMessage.data["content"]
+                if (remoteMessage.data.containsKey("bannerImage"))
+                    imageUri = Uri.parse(remoteMessage.data["bannerImage"])
             }
             remoteMessage.notification != null -> {
                 LogHelper.instance.printDebugLog("Message Notification payload present ")
@@ -45,7 +45,11 @@ class NotificationController private constructor() {
             else -> return
         }
 
-        val resultIntent = Intent(context, SplashActivity::class.java)
+        val resultIntent = Intent(context, MainActivity::class.java)
+        resultIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        resultIntent.putExtra("from_notification", "true")
+        resultIntent.putExtra("notif_id", remoteMessage.data["notification_id"])
+
         val resultPendingIntent: PendingIntent? =
                 TaskStackBuilder.create(context).run {
                     addNextIntentWithParentStack(resultIntent)
@@ -70,9 +74,11 @@ class NotificationController private constructor() {
                         .asBitmap().load(imageUri).submit()
                 val bitmap = futureTarget.get()
                 builder.setLargeIcon(bitmap)
-                builder.setStyle(NotificationCompat.BigPictureStyle()
+                builder.setStyle(
+                    NotificationCompat.BigPictureStyle()
                         .bigPicture(bitmap)
-                        .bigLargeIcon(null))
+                        .bigLargeIcon(null)
+                )
                 Glide.with(context).clear(futureTarget)
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -80,9 +86,11 @@ class NotificationController private constructor() {
 
 
         } else {
-            builder.setStyle(NotificationCompat.BigTextStyle()
+            builder.setStyle(
+                NotificationCompat.BigTextStyle()
                     .setBigContentTitle(title)
-                    .bigText(message))
+                    .bigText(message)
+            )
         }
         with(NotificationManagerCompat.from(context)) {
             notify(notificationCount++, builder.build())
@@ -125,9 +133,9 @@ class NotificationController private constructor() {
         //val instance: com.shopping.alis.notification.NotificationController = HOLDER.INSTANCE
         val instance: NotificationController by lazy { HOLDER.INSTANCE }
 
-        private const val N_CHANNEL_ID = "Alis_channel_ID"
-        private const val N_CHANNEL_NAME = "Alis Notifications"
-        private const val N_CHANNEL_DESC = "Alis General Notifications"
+        private const val N_CHANNEL_ID = "Shopmitt_channel_ID"
+        private const val N_CHANNEL_NAME = "Shopmitt Notifications"
+        private const val N_CHANNEL_DESC = "Shopmitt General Notifications"
 
     }
 

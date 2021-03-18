@@ -635,6 +635,14 @@ class RestHelper(mHelper: RestResponseHandler?, mContext: Context?) {
                 { throwable: Throwable? -> RestServiceResponse.instance.handleError(throwable, helper, context) }
     }
 
+    fun getNotification(query: String, id: String): Disposable? {
+        val notif = RestServiceGenerator().getService()!!.getNotification(query,id)
+        return notif.subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ obj -> obj?.let { RestServiceResponse.instance.handleResults(it, helper) } })
+                { throwable: Throwable? -> RestServiceResponse.instance.handleError(throwable, helper, context) }
+    }
+
     fun getPlaceAddress(url: String?): Disposable? {
         val getTrips = RestServiceGenerator().getService()!!.getPlaceAddress(url)
         return getTrips!!.subscribeOn(Schedulers.newThread())

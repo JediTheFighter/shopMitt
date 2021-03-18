@@ -241,6 +241,9 @@ interface RestApiClient {
     @GET("index.php?route=rest/cart/cartTotal")
     fun getCartTotals(): Observable<ViewCart>
 
+    @GET("index.php")
+    fun getNotification(@Query("route") route: String, @Query("id") notif_id: String): Observable<NotificationModel>
+
     @GET
     fun getPlaceAddress(@Url url: String?): Observable<GooglePlaceAddressModel?>?
 

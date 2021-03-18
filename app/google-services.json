@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "244157935340",
-    "firebase_url": "https://alis-293217.firebaseio.com",
-    "project_id": "alis-293217",
-    "storage_bucket": "alis-293217.appspot.com"
+    "project_number": "87842110523",
+    "firebase_url": "https://shopmitt-1e4c9.firebaseio.com",
+    "project_id": "shopmitt-1e4c9",
+    "storage_bucket": "shopmitt-1e4c9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:244157935340:android:096c53b7bf2c04efe0ffc9",
+        "mobilesdk_app_id": "1:87842110523:android:9c4e39e4b5f8adf92c301e",
         "android_client_info": {
           "package_name": "com.ecommerce.shopmitt"
         }
       },
       "oauth_client": [
         {
-          "client_id": "244157935340-of753r0kmhv2sgie5ouiu4t1hqgm03tc.apps.googleusercontent.com",
+          "client_id": "87842110523-3spliqb1d1u31ncr5nf1dipc0a8jlnpj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.ecommerce.shopmitt",
@@ -23,20 +23,49 @@
           }
         },
         {
-          "client_id": "244157935340-q4djbolu3021c53f3h9frol4landjags.apps.googleusercontent.com",
+          "client_id": "87842110523-jdbq0lf9pv5rhjt3m6bqn49rpupnunmh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDjuLlS_0eCWkxd7T0F8Ajpkd4r3MWLx0M"
+          "current_key": "AIzaSyDb5NK-4eGocfrWs4NF93Ak_yiyilQsLVc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "244157935340-q4djbolu3021c53f3h9frol4landjags.apps.googleusercontent.com",
+              "client_id": "87842110523-jdbq0lf9pv5rhjt3m6bqn49rpupnunmh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87842110523:android:6317bb02a5be7ece2c301e",
+        "android_client_info": {
+          "package_name": "com.restfood.shopmitt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87842110523-jdbq0lf9pv5rhjt3m6bqn49rpupnunmh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb5NK-4eGocfrWs4NF93Ak_yiyilQsLVc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87842110523-jdbq0lf9pv5rhjt3m6bqn49rpupnunmh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

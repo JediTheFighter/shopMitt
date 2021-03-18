@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import com.ecommerce.shopmitt.AppDataManager
 import com.ecommerce.shopmitt.BuildConfig
 import com.ecommerce.shopmitt.MainActivity
@@ -17,7 +18,12 @@ import com.ecommerce.shopmitt.models.GenericModel
 import com.ecommerce.shopmitt.models.TokenModel
 import com.ecommerce.shopmitt.network.RestHelper
 import com.ecommerce.shopmitt.network.RestResponseHandler
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.iid.InstanceIdResult
+import com.google.firebase.messaging.FirebaseMessaging
 import io.reactivex.disposables.Disposable
+
 
 class SplashActivity : BaseActivity() {
 
@@ -31,6 +37,13 @@ class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_splash)
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener {
+            if(it.isComplete){
+                val fbToken = it.result.toString()
+                Log.v("FCM TOKEN",fbToken)
+            }
+        }
 
         checkAppVersion()
     }

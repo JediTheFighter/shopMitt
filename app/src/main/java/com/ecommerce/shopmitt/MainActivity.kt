@@ -25,11 +25,7 @@ import com.ecommerce.shopmitt.base.model.ExpandedMenuModel
 import com.ecommerce.shopmitt.databinding.ActivityMainBinding
 import com.ecommerce.shopmitt.db.AppDatabase
 import com.ecommerce.shopmitt.db.dao.CartDao
-import com.ecommerce.shopmitt.db.entities.CartData
-import com.ecommerce.shopmitt.models.BannerModel
-import com.ecommerce.shopmitt.models.CategoryModel
-import com.ecommerce.shopmitt.models.ProductModel
-import com.ecommerce.shopmitt.models.ProfileActivity
+import com.ecommerce.shopmitt.models.*
 import com.ecommerce.shopmitt.network.RestHelper
 import com.ecommerce.shopmitt.network.RestResponseHandler
 import com.ecommerce.shopmitt.utils.Constants
@@ -42,7 +38,6 @@ import com.ecommerce.shopmitt.utils.Constants.TERMS_AND_CONDITIONS
 import com.ecommerce.shopmitt.views.activities.*
 import com.ecommerce.shopmitt.views.adapters.*
 import com.google.android.material.navigation.NavigationView
-import com.google.gson.Gson
 import com.google.gson.JsonObject
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.content_main.view.*
@@ -100,6 +95,9 @@ class MainActivity : CountMenuActivity() {
         val imgHamburger = findViewById<ImageView>(R.id.img_hamburger)
         setSupportActionBar(binding.content.toolbar.customToolbar)
 
+
+        if (intent.hasExtra("from_notification"))
+            getNotification()
 
         cartDao = AppDatabase.getDatabase(this).cartDao()
 
@@ -173,12 +171,59 @@ class MainActivity : CountMenuActivity() {
         }
 
         if (PreferencesManager.instance.getString(PreferencesManager.KEY_CURR_LOCATION)!!.isNotEmpty())
-            binding.content.toolbar.tvUserLocation.text = PreferencesManager.instance.getString(PreferencesManager.KEY_CURR_LOCATION)
+            binding.content.toolbar.tvUserLocation.text = PreferencesManager.instance.getString(
+                PreferencesManager.KEY_CURR_LOCATION
+            )
 
         binding.content.toolbar.tvUserLocation.setOnClickListener {
-            navigator.navigate(this,PickupLocationActivity::class.java)
+            navigator.navigate(this, PickupLocationActivity::class.java)
         }
 
+    }
+
+    private fun getNotification() {
+
+        if (intent.hasExtra("notif_id")) {
+            val id = intent.getStringExtra("notif_id")!!
+
+            showLoadingDialog()
+            RestHelper(object : RestResponseHandler {
+                override fun onSuccess(`object`: Any?) {
+                    hideLoadingDialog()
+                    val model = `object` as NotificationModel
+                    handleNotificationModel(model)
+                }
+
+                override fun onError(statusCode: Int, statusMessage: String?, retry: Boolean) {
+                    hideLoadingDialog()
+                }
+
+            }, this).getNotification("feed/rest_api/notifications", id)
+        }
+    }
+
+    private fun handleNotificationModel(model: NotificationModel) {
+        when (model.data[0].type) {
+            "product" -> {
+                intent = Intent(this@MainActivity, DetailsActivity::class.java)
+                intent.putExtra("product_id", model.data[0].id)
+                Log.v("PRODUCT ID FROM NOT", model.data[0].id)
+                startActivity(intent)
+            }
+            "category" -> {
+                intent = Intent(this@MainActivity, ProductListActivity::class.java)
+                intent.putExtra("title",  model.data[0].title)
+                intent.putExtra("id",  model.data[0].id)
+                intent.putExtra("product_id",  model.data[0].id)
+                intent.putExtra("sub_category_name",  model.data[0].title)
+                intent.putExtra("sub_category_id",  model.data[0].id)
+                Log.v(
+                    "CAT ID FROM NOT",
+                    model.data[0].id.toString() + "  " + model.data[0].title
+                )
+                startActivity(intent)
+            }
+        }
     }
 
     private fun handleClick(pos: Int) {
