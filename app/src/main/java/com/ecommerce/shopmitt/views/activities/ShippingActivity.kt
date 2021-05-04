@@ -129,7 +129,7 @@ class ShippingActivity : BaseActivity(), AddAddressDialogFragment.AddressAdd {
     }
 
     private fun getAddressID(pos: Int): JsonObject {
-        Log.d("Shipping", "getAddressID: $pos")
+        Log.d("Shipping", "getAddressID: $pos, object: ${addresses[pos]}")
         val obj = JsonObject()
         obj.addProperty("address_id", addresses[pos].addressId)
         if (addresses[pos].latitude != null)

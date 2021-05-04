@@ -211,6 +211,17 @@ class CartActivity : BaseActivity(), CartAdapter.CartBridge,
         val line = ContextCompat.getDrawable(this, R.drawable.line_divider)
         binding.rvBills.addItemDecoration(DividerItemDecorator(line))
 
+        if (!data.weightLimit.isNullOrEmpty()) {
+            binding.cardWeightLimit.visibility = View.VISIBLE
+            binding.tvWeightLimitMsg.text = "${data.weightLimit}"
+            binding.icCloseWeightLimit.setOnClickListener {
+                binding.cardWeightLimit.visibility = View.GONE
+            }
+        } else
+            binding.cardWeightLimit.visibility = View.GONE
+
+
+
         //setting msg
         if (!data.message.isNullOrEmpty()) {
             binding.tvShippingMsg.text = data.message

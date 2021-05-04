@@ -14,6 +14,7 @@
     <color name="colorNav_text">#58595B</color>
     <color name="colorTextPrimary">#323232</color>
     <color name="colorDisabled">#d7d7d7</color>
+    <color name="weightLimit">#FF4D9B</color>
 
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorSpecialSlot">#ff8236</color>

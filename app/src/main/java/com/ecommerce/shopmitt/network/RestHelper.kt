@@ -331,8 +331,8 @@ class RestHelper(mHelper: RestResponseHandler?, mContext: Context?) {
     }
 
 
-    fun getShippingMethods(): Disposable? {
-        val shipping = RestServiceGenerator().getService()!!.getShippingMethods()
+    fun getShippingMethods(queries: Map<String,String>): Disposable? {
+        val shipping = RestServiceGenerator().getService()!!.getShippingMethods(queries)
         return shipping.subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ obj -> obj?.let { RestServiceResponse.instance.handleResults(it, helper) } })

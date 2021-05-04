@@ -35,6 +35,7 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class PaymentActivity : BaseActivity(), PaymentResultListener,ShippingMethodsAdapter.ShippingMethodBridge, StoreAdapter.StoreBridge {
 
@@ -73,8 +74,6 @@ class PaymentActivity : BaseActivity(), PaymentResultListener,ShippingMethodsAda
 
         Checkout.preload(applicationContext)
 
-        getShippingMethods()
-
         binding.checkout.setOnClickListener {
             callConfirmOrder()
         }
@@ -95,6 +94,7 @@ class PaymentActivity : BaseActivity(), PaymentResultListener,ShippingMethodsAda
         if (intent.hasExtra("lng"))
             lon_addr = intent.getStringExtra("lng")
 
+        getShippingMethods()
 
     }
 
@@ -150,7 +150,18 @@ class PaymentActivity : BaseActivity(), PaymentResultListener,ShippingMethodsAda
                 getToast().show(statusMessage)
             }
 
-        }, this).getShippingMethods()
+        }, this).getShippingMethods(getShippingParams())
+    }
+
+    private fun getShippingParams(): Map<String,String> {
+
+        Log.i("PARAM", "lat is $lat_addr, long is $lon_addr ")
+        val params = HashMap<String,String>()
+        if (!lat_addr.isNullOrEmpty() && !lon_addr.isNullOrEmpty()) {
+            params["latitude"] = lat_addr!!
+            params["longitude"] = lon_addr!!
+        }
+        return params
     }
 
     private fun handleShippingMethods(shippingMethods: List<ShippingMethodsModel.Data.ShippingMethod>) {

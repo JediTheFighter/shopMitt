@@ -18,6 +18,10 @@ class ViewCart : BaseModel() {
         @Expose
         var weight: String? = null,
 
+        @SerializedName("weight_limit")
+        @Expose
+        var weightLimit: String? = null,
+
         @SerializedName("category_id")
         @Expose
         val category_id: String? = null,

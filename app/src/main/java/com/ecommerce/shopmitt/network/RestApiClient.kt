@@ -128,7 +128,7 @@ interface RestApiClient {
     fun addShippingAddress(@Body existing: JsonObject): Observable<BaseModel>
 
     @GET("index.php?route=rest/shipping_method/shippingmethods")
-    fun getShippingMethods(): Observable<ShippingMethodsModel>
+    fun getShippingMethods(@QueryMap queries: Map<String,String>): Observable<ShippingMethodsModel>
 
     @POST("index.php?route=rest/shipping_method/shippingmethods")
     fun setShippingMethod(@Body json: JsonObject): Observable<BaseModel>

@@ -177,6 +177,45 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/cardWeightLimit"
+                    android:visibility="gone"
+                    app:cardCornerRadius="6dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/weightLimit">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_weight_limit_msg"
+                            android:layout_toStartOf="@+id/ic_close_weight_limit"
+                            android:maxLines="3"
+                            android:padding="10dp"
+                            android:textColor="@color/white"
+                            tools:text="Total order weight exceeds 30 kg. Home Delivery may not be available" />
+
+                        <ImageView
+                            android:id="@+id/ic_close_weight_limit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="20dp"
+                            android:src="@drawable/vc_close"
+                            app:tint="@color/white" />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
             </LinearLayout>
 
         </LinearLayout>
