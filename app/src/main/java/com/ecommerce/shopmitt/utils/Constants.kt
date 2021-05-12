@@ -1,5 +1,7 @@
 package com.ecommerce.shopmitt.utils
 
+import com.ecommerce.shopmitt.BuildConfig
+
 object Constants {
 
     ///
@@ -52,9 +54,9 @@ object Constants {
     const val SORT_TYPE_WAIT_TIME = 214
 
     // App urls
-    const val PRIVACY_POLICY = "http://canteenmart.com/index.php?route=feed/rest_api/information&id=1&info=1"
-    const val TERMS_AND_CONDITIONS = "http://canteenmart.com/index.php?route=feed/rest_api/information&id=2&info=1"
-    const val ABOUT_US = "http://canteenmart.com/index.php?route=feed/rest_api/information&id=4"
+    const val PRIVACY_POLICY = BuildConfig.BASE_URL + "index.php?route=feed/rest_api/information&id=1&info=1"
+    const val TERMS_AND_CONDITIONS = BuildConfig.BASE_URL + "index.php?route=feed/rest_api/information&id=2&info=1"
+    const val ABOUT_US = BuildConfig.BASE_URL + "index.php?route=feed/rest_api/information&id=4"
 
 
     // App url type

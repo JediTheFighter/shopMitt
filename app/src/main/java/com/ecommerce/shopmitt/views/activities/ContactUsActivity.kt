@@ -37,6 +37,7 @@ class ContactUsActivity : BaseActivity() {
             override fun onSuccess(`object`: Any?) {
                 hideLoadingDialog()
                 val model = `object` as BaseModel
+                getToast().show("Enquiry Sent Successfully")
             }
 
             override fun onError(statusCode: Int, statusMessage: String?, retry: Boolean) {
@@ -88,7 +89,6 @@ class ContactUsActivity : BaseActivity() {
             override fun onSuccess(`object`: Any?) {
                 hideLoadingDialog()
                 val model = `object` as StoreDetailModel
-                getToast().show("Enquiry Sent Successfully")
             }
 
             override fun onError(statusCode: Int, statusMessage: String?, retry: Boolean) {

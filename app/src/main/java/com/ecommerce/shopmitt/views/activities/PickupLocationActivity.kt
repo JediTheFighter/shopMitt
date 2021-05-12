@@ -22,6 +22,7 @@ import com.ecommerce.shopmitt.AppDataManager
 import com.ecommerce.shopmitt.MainActivity
 import com.ecommerce.shopmitt.R
 import com.ecommerce.shopmitt.base.activity.BaseActivity
+import com.ecommerce.shopmitt.base.extentions.setSafeOnClickListener
 import com.ecommerce.shopmitt.databinding.ActivityPickupLocationBinding
 import com.ecommerce.shopmitt.models.GenericModel
 import com.ecommerce.shopmitt.network.RestHelper
@@ -69,7 +70,7 @@ class PickupLocationActivity : BaseActivity(), LocationUtil.OneShotLocationListe
 
 
         // Listeners
-        binding.btnGps.setOnClickListener {
+        binding.btnGps.setSafeOnClickListener {
 
             if (ContextCompat.checkSelfPermission(
                     this,
@@ -225,7 +226,7 @@ class PickupLocationActivity : BaseActivity(), LocationUtil.OneShotLocationListe
         val latitude = location!!.latitude
         val longitude = location.longitude
 
-        locationUtil?.stop()
+        locationUtil?.dispose()
 
         val addressFromLatLng = getAddress(latitude, longitude)
 

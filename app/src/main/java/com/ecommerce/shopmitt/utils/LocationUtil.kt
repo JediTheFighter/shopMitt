@@ -143,7 +143,6 @@ class LocationUtil(private var activity: Activity?) {
     fun dispose() {
         stop()
         listener = null
-        activity = null
     }
 
     fun stop() {

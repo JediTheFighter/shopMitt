@@ -27,7 +27,6 @@ class HomeBannerAdapter(val context: Context, var pics: List<BannerModel.Data>) 
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val itemView: View = mLayoutInflater.inflate(R.layout.banner_layout, container, false)
-        Log.v("response", "" + pics[position].image)
         val imageView = itemView.findViewById<View>(R.id.img_banner) as ImageView
 
         if (pics.isNotEmpty()) {

@@ -114,7 +114,6 @@ class MapActivity : BaseActivity(), OnMapReadyCallback, SearchView.OnQueryTextLi
         placesClient = Places
                 .createClient(this)
 
-        locationUtil = LocationUtil(this)
         getCurrentLocationWithPermissionCheck()
 
         lat = intent.getDoubleExtra("lat", 0.0)
@@ -156,6 +155,11 @@ class MapActivity : BaseActivity(), OnMapReadyCallback, SearchView.OnQueryTextLi
 
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        locationUtil = LocationUtil(this)
     }
 
     private fun isPermissionGranted(permission: Boolean) {
@@ -426,9 +430,8 @@ class MapActivity : BaseActivity(), OnMapReadyCallback, SearchView.OnQueryTextLi
 
     override fun onLocationSuccess(location: Location?) {
 
-        if (location != null) {
-            locationUtil!!.stop()
-        }
+        locationUtil?.dispose()
+
         if (location != null) {
             sourceLatLng = LatLng(location.latitude, location.longitude)
             isLocationAssigned = true
