@@ -80,7 +80,7 @@
             <Button
                 android:id="@+id/btn_gps"
                 android:layout_width="wrap_content"
-                android:layout_height="45dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
                 android:drawableLeft="@drawable/ic_location"
@@ -89,23 +89,28 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:text="@string/use_current_location"
-                android:background="@color/colorPrimaryDark"
+                android:backgroundTint="@color/colorPrimaryDark"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
                 android:textAllCaps="true"
                 android:textColor="#fff" />
 
-            <TextView
+            <Button
                 android:id="@+id/btn_manual_location"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dp"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:padding="5dp"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 android:text="@string/choose_manually"
-                android:textColor="@color/colorAccent" />
+                android:backgroundTint="@color/colorAccent"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textAllCaps="true"
+                android:textColor="#fff" />
+
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>

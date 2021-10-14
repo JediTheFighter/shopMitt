@@ -78,10 +78,11 @@ class PickupLocationActivity : BaseActivity(), LocationUtil.OneShotLocationListe
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
                 if (locationManager?.isProviderEnabled(LocationManager.GPS_PROVIDER)!!) {
+                    showLoadingDialog()
                     if (isLocationAssigned)
                         locationUtil?.getLocation(this)
                     else {
-                        getToast().show("Fetching location...")
+                        getToast().show("Please wait...")
                         locationUtil?.getLocation(this)
                     }
                 } else Toast.makeText(
@@ -95,9 +96,11 @@ class PickupLocationActivity : BaseActivity(), LocationUtil.OneShotLocationListe
         }
 
         binding.btnManualLocation.setOnClickListener {
-            val intent = Intent(this@PickupLocationActivity, MapActivity::class.java)
+            /*val intent = Intent(this@PickupLocationActivity, MapActivity::class.java)
             intent.putExtra("from", FROM_PICKUP)
-            startActivityForResult(intent, MAP_RESULT)
+            startActivityForResult(intent, MAP_RESULT)*/
+            val `in` = Intent(this@PickupLocationActivity, DeliveryPlacesActivity::class.java)
+            startActivity(`in`)
         }
     }
 
@@ -221,6 +224,8 @@ class PickupLocationActivity : BaseActivity(), LocationUtil.OneShotLocationListe
     }
 
     override fun onLocationSuccess(location: Location?) {
+        hideLoadingDialog()
+
         isLocationAssigned = true
 
         val latitude = location!!.latitude

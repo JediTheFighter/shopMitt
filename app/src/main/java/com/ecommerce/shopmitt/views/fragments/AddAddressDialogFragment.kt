@@ -152,10 +152,10 @@ class AddAddressDialogFragment: DialogFragment() {
             return false
         }
 
-        if (latitude == 0.0) {
+        /*if (latitude == 0.0) {
             ToastHelper.instance.show("Add your location from map")
             return false
-        }
+        }*/
         return true
     }
 

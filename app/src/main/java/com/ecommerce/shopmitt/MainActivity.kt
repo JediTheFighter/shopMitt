@@ -365,9 +365,11 @@ class MainActivity : CountMenuActivity() {
     }
 
     private fun handleTitles(model: BannerModel) {
-        binding.content.titleOne.text = model.data[0].imageOnly
-        binding.content.titleTwo.text = model.data[1].imageOnly
-        binding.content.titleThree.text = model.data[2].imageOnly
+        if (model.data.size >= 3) {
+            binding.content.titleOne.text = model.data[0].imageOnly
+            binding.content.titleTwo.text = model.data[1].imageOnly
+            binding.content.titleThree.text = model.data[2].imageOnly
+        }
     }
 
     private fun callFeaturedBanners() {
@@ -445,26 +447,30 @@ class MainActivity : CountMenuActivity() {
 
     private fun handleBannerFive(model: BannerModel) {
 
-        val item = model.data[0]
+        if(model.data.isNotEmpty()) {
+            val item = model.data[0]
 
-        Glide.with(this)
-            .load(item.image)
-            .centerCrop()
-            .into(binding.content.bannerStaticThree)
+            Glide.with(this)
+                .load(item.image)
+                .centerCrop()
+                .into(binding.content.bannerStaticThree)
 
-        binding.content.bannerStaticThree.setOnClickListener {
+            binding.content.bannerStaticThree.setOnClickListener {
 
-            val intent: Intent = if (item.type == "category" || item.type == "2")
-                Intent(this, ProductListActivity::class.java)
-            else
-                Intent(this, DetailsActivity::class.java)
+                val intent: Intent = if (item.type == "category" || item.type == "2")
+                    Intent(this, ProductListActivity::class.java)
+                else
+                    Intent(this, DetailsActivity::class.java)
 
-            intent.putExtra("title", item.title)
-            intent.putExtra("id", item.link)
-            intent.putExtra("product_id", item.link)
-            intent.putExtra("sub_category_name", item.title)
-            intent.putExtra("sub_category_id", item.link)
-            startActivity(intent)
+                intent.putExtra("title", item.title)
+                intent.putExtra("id", item.link)
+                intent.putExtra("product_id", item.link)
+                intent.putExtra("sub_category_name", item.title)
+                intent.putExtra("sub_category_id", item.link)
+                startActivity(intent)
+            }
+        } else {
+            binding.content.bannerStaticThree.visibility = View.GONE
         }
     }
 
@@ -526,27 +532,33 @@ class MainActivity : CountMenuActivity() {
     }
 
     private fun handleBannerFour(model: BannerModel) {
-        val item = model.data[0]
 
-        Glide.with(this)
-            .load(item.image)
-            .centerCrop()
-            .into(binding.content.bannerStaticTwo)
+        if(model.data.isNotEmpty()) {
+            val item = model.data[0]
 
-        binding.content.bannerStaticTwo.setOnClickListener {
+            Glide.with(this)
+                .load(item.image)
+                .centerCrop()
+                .into(binding.content.bannerStaticTwo)
 
-            val intent: Intent = if (item.type == "category" || item.type == "2")
-                Intent(this, ProductListActivity::class.java)
-            else
-                Intent(this, DetailsActivity::class.java)
+            binding.content.bannerStaticTwo.setOnClickListener {
 
-            intent.putExtra("title", item.title)
-            intent.putExtra("id", item.link)
-            intent.putExtra("product_id", item.link)
-            intent.putExtra("sub_category_name", item.title)
-            intent.putExtra("sub_category_id", item.link)
-            startActivity(intent)
+                val intent: Intent = if (item.type == "category" || item.type == "2")
+                    Intent(this, ProductListActivity::class.java)
+                else
+                    Intent(this, DetailsActivity::class.java)
+
+                intent.putExtra("title", item.title)
+                intent.putExtra("id", item.link)
+                intent.putExtra("product_id", item.link)
+                intent.putExtra("sub_category_name", item.title)
+                intent.putExtra("sub_category_id", item.link)
+                startActivity(intent)
+            }
+        } else {
+            binding.content.bannerStaticTwo.visibility = View.GONE
         }
+
     }
 
     private fun callMiddleSection() {
@@ -648,26 +660,31 @@ class MainActivity : CountMenuActivity() {
     }
 
     private fun handleBannerThree(model: BannerModel) {
-        val item = model.data[0]
 
-        Glide.with(this)
-            .load(item.image)
-            .centerCrop()
-            .into(binding.content.bannerStaticOne)
+        if(model.data.isNotEmpty()) {
+            val item = model.data[0]
 
-        binding.content.bannerStaticOne.setOnClickListener {
+            Glide.with(this)
+                .load(item.image)
+                .centerCrop()
+                .into(binding.content.bannerStaticOne)
 
-            val intent: Intent = if (item.type == "category" || item.type == "2")
-                Intent(this, ProductListActivity::class.java)
-            else
-                Intent(this, DetailsActivity::class.java)
+            binding.content.bannerStaticOne.setOnClickListener {
 
-            intent.putExtra("title", item.title)
-            intent.putExtra("id", item.link)
-            intent.putExtra("product_id", item.link)
-            intent.putExtra("sub_category_name", item.title)
-            intent.putExtra("sub_category_id", item.link)
-            startActivity(intent)
+                val intent: Intent = if (item.type == "category" || item.type == "2")
+                    Intent(this, ProductListActivity::class.java)
+                else
+                    Intent(this, DetailsActivity::class.java)
+
+                intent.putExtra("title", item.title)
+                intent.putExtra("id", item.link)
+                intent.putExtra("product_id", item.link)
+                intent.putExtra("sub_category_name", item.title)
+                intent.putExtra("sub_category_id", item.link)
+                startActivity(intent)
+            }
+        } else {
+            binding.content.bannerStaticOne.visibility = View.GONE
         }
     }
 
@@ -755,12 +772,15 @@ class MainActivity : CountMenuActivity() {
 
             override fun onError(statusCode: Int, statusMessage: String?, retry: Boolean) {
                 hideLoadingDialog()
+                binding.content.rootLl.visibility = View.VISIBLE
             }
 
         }, this).getCategories()
     }
 
     private fun handleCategories(model: CategoryModel) {
+
+        binding.content.rootLl.visibility = View.VISIBLE
 
         val adapter = TopCategoryAdapter(onItemClicked = {
             if (it.productType == "true") {

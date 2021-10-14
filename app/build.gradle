@@ -28,8 +28,8 @@ android {
         applicationId "com.ecommerce.shopmitt"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 7
-        versionName "1.0.6"
+        versionCode 12
+        versionName "1.1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = [ MAPS_KEY:'"' + apikeyProperties['MAPS_KEY'] + '"' ]
@@ -43,13 +43,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-
-//            buildConfigField 'String', 'BASE_URL', "\"http://128.199.23.119/\""
-//            buildConfigField 'String', 'BASE_URL', "\"http://bigshopperapp.in/\""
-            buildConfigField 'String', 'BASE_URL', "\"https://shopmitt.in/\""
+//            buildConfigField 'String', 'BASE_URL', "\"https://shopmitt.com/\""
+            buildConfigField 'String', 'BASE_URL', "\"http://128.199.23.119/\""
             buildConfigField 'String', 'MAPS_KEY', '"' + apikeyProperties['MAPS_KEY'] + '"'
             buildConfigField 'String', 'GOOGLE_SIGN_IN', "\"193094960362-t0b4s8shm2r8dghueh8brkmtphkpkegc.apps.googleusercontent.com\""
 
+            resValue "string", "google_maps_api_key", '"' + apikeyProperties['MAPS_KEY'] + '"'
         }
 
 
@@ -58,9 +57,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-            buildConfigField 'String', 'BASE_URL', "\"https://shopmitt.in/\""
+//            buildConfigField 'String', 'BASE_URL', "\"https://shopmitt.com/\""
+            buildConfigField 'String', 'BASE_URL', "\"http://128.199.23.119/\""
             buildConfigField 'String', 'MAPS_KEY', '"' + apikeyProperties['MAPS_KEY'] + '"'
             buildConfigField 'String', 'GOOGLE_SIGN_IN', "\"193094960362-t0b4s8shm2r8dghueh8brkmtphkpkegc.apps.googleusercontent.com\""
+
+            resValue "string", "google_maps_api_key", '"' + apikeyProperties['MAPS_KEY'] + '"'
+
             signingConfig signingConfigs.production
         }
     }

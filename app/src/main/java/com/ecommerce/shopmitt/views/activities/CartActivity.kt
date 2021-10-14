@@ -64,7 +64,7 @@ class CartActivity : BaseActivity(), CartAdapter.CartBridge,
             if (AppDataManager.instance.isLoggedIn) {
                 moveToSlots()
             } else {
-                getToast().show("You need to login to continue.")
+                moveToLogin()
             }
         }
 
@@ -97,6 +97,13 @@ class CartActivity : BaseActivity(), CartAdapter.CartBridge,
         intent.putExtra("count", cartAdapter.itemCount.toString())
         intent.putExtra("total", totalAmount.toString())
         intent.putParcelableArrayListExtra("bill", bills)
+        startActivity(intent)
+    }
+
+    private fun moveToLogin() {
+        getToast().show("You need to login to continue.")
+
+        val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
     }
 

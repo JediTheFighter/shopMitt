@@ -46,9 +46,11 @@ class RestServiceResponse private constructor() {
 
                 statusMessage = obj.getJSONArray("error")[0].toString()
                 LogHelper.instance.printErrorLog("message : $statusMessage")
-                statusCode = obj.getInt("_status")
+//                statusCode = obj.getInt("_status")
+                statusCode = throwable.code()
+
                 LogHelper.instance.printErrorLog("status : $statusCode")
-                if (statusCode == 403) {
+                if (statusCode == 401) {
                     AppDataManager.instance.clearLoginData()
                     AlisApplication.instance.navigator.navigate(context, LoginActivity::class.java)
                     return
